@@ -1,0 +1,93 @@
+{
+  "name": "logtickr",
+  "version": "0.1.0",
+  "private": true,
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "build": "next build",
+    "build:electron": "tsc -p tsconfig.electron.json && npm run build",
+    "build:ts": "tsc -p tsconfig.electron.json",
+    "build:next": "next build",
+    "build:all": "npm run export && npm run build:ts",
+    "dev": "next dev",
+    "start": "next start",
+    "lint": "next lint",
+    "electron-dev": "tsc -p tsconfig.electron.json && npx electron dist-electron/main.js",
+    "pack": "npm run build:electron && electron-builder --dir",
+    "dist": "npm run build:all && electron-builder",
+    "dist:mac": "npm run build:electron && electron-builder --mac --publish=never",
+    "dist:win": "npm run build:electron && electron-builder --win --publish=never",
+    "export": "next build"
+  },
+  "dependencies": {
+    "@geist-ui/react": "^2.2.5",
+    "@radix-ui/react-select": "^2.2.6",
+    "@radix-ui/react-slot": "^1.2.3",
+    "@stripe/stripe-js": "^7.9.0",
+    "@supabase/supabase-js": "^2.57.2",
+    "@tailwindcss/typography": "^0.5.16",
+    "@vercel/analytics": "^1.5.0",
+    "autoprefixer": "^10.4.21",
+    "chart.js": "^4.5.0",
+    "class-variance-authority": "^0.7.1",
+    "clsx": "^2.1.1",
+    "express": "^5.1.0",
+    "jspdf": "^3.0.2",
+    "jspdf-autotable": "^5.0.2",
+    "lucide-react": "^0.544.0",
+    "next": "^14.2.16",
+    "postcss": "^8.5.6",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-hot-toast": "^2.6.0",
+    "stripe": "^18.5.0",
+    "tailwind-merge": "^3.3.1",
+    "tailwindcss": "^3.4.17",
+    "typescript": "^5"
+  },
+  "devDependencies": {
+    "@tailwindcss/forms": "^0.5.10",
+    "@types/express": "^5.0.3",
+    "@types/node": "^22.18.3",
+    "@types/react": "^18",
+    "@types/react-dom": "^18",
+    "electron": "^38.1.0",
+    "electron-builder": "^26.0.12",
+    "electron-updater": "^6.6.2",
+    "ts-node": "^10.9.2"
+  },
+  "build": {
+    "appId": "com.logtickr.tradingjournal",
+    "productName": "LogTickr",
+    "directories": {
+      "output": "dist-electron",
+      "buildResources": "assets"
+    },
+    "files": [
+      "dist-electron/main.js",
+      "out/**",
+      "assets/**",
+      "!out/**/*.js.map",
+      "!app/**",
+      "!**/*.ts"
+    ],
+    "asarUnpack": [],
+    "extraMetadata": {
+      "main": "dist-electron/main.js"
+    },
+    "mac": {
+      "icon": "assets/icon.icns",
+      "category": "public.app-category.finance",
+      "target": [
+        "dmg"
+      ]
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "YOUR_GITHUB_USERNAME",
+        "repo": "YOUR_REPO_NAME"
+      }
+    ]
+  }
+}

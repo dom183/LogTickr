@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npm run dev:*)",
+      "Bash(npm run pack:*)",
+      "Bash(./dist-electron/mac-arm64/TradingJournal.app/Contents/MacOS/TradingJournal)",
+      "Bash(npm run build:all:*)",
+      "Bash(npm run build:ts:*)",
+      "Bash(./dist-electron/mac-arm64/LogTickr.app/Contents/MacOS/LogTickr)"
+    ],
+    "deny": [],
+    "ask": []
+  }
+}

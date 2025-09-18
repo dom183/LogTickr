@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components; 
+@tailwind utilities;
+
+:root {
+  /* Updated to professional trading platform color tokens */
+  --background: 0 0% 100%; /* Clean white background */
+  --foreground: 218 11% 29%; /* Professional dark gray text */
+  --card: 220 14% 98%; /* Subtle card background */
+  --card-foreground: 218 11% 29%; /* Card text */
+  --popover: 0 0% 100%; /* Popover background */
+  --popover-foreground: 218 11% 29%; /* Popover text */
+  --primary: 186 100% 47%; /* Professional cyan for trust */
+  --primary-foreground: 0 0% 100%; /* White text on primary */
+  --secondary: 160 84% 39%; /* Success green accent */
+  --secondary-foreground: 0 0% 100%; /* White text on secondary */
+  --muted: 218 27% 96%; /* Subtle muted background */
+  --muted-foreground: 218 11% 42%; /* Muted text */
+  --accent: 160 84% 39%; /* Growth green highlights */
+  --accent-foreground: 0 0% 100%; /* White text on accent */
+  --destructive: 0 84% 60%; /* Professional red for losses */
+  --destructive-foreground: 0 0% 100%; /* White text on destructive */
+  --border: 220 13% 91%; /* Clean border color */
+  --input: 220 14% 98%; /* Input background */
+  --ring: 186 100% 47%; /* Focus ring */
+  --radius: 0.75rem; /* Slightly larger radius for premium feel */
+}
+
+.dark {
+  /* Enhanced dark mode for professional trading interface */
+  --background: 222 84% 5%; /* Deep professional dark */
+  --foreground: 213 31% 97%; /* Clean white text */
+  --card: 217 33% 17%; /* Dark card background */
+  --card-foreground: 213 31% 97%; /* Light card text */
+  --popover: 222 84% 5%; /* Dark popover */
+  --popover-foreground: 213 31% 97%; /* Light popover text */
+  --primary: 199 89% 48%; /* Brighter cyan for dark mode */
+  --primary-foreground: 222 84% 5%; /* Dark text on primary */
+  --secondary: 217 33% 17%; /* Dark secondary */
+  --secondary-foreground: 213 31% 97%; /* Light text on secondary */
+  --muted: 217 33% 17%; /* Dark muted */
+  --muted-foreground: 215 20% 65%; /* Muted text */
+  --accent: 142 76% 36%; /* Bright green accent */
+  --accent-foreground: 222 84% 5%; /* Dark text on accent */
+  --destructive: 0 63% 31%; /* Bright red for dark mode */
+  --destructive-foreground: 213 31% 97%; /* Light text on destructive */
+  --border: 217 33% 17%; /* Dark border */
+  --input: 217 33% 17%; /* Dark input */
+  --ring: 199 89% 48%; /* Dark mode focus ring */
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-sans antialiased;
+  }
+  /* Added professional typography styles */
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-semibold tracking-tight;
+  }
+  h1 {
+    @apply text-3xl lg:text-4xl;
+  }
+  h2 {
+    @apply text-2xl lg:text-3xl;
+  }
+  h3 {
+    @apply text-xl lg:text-2xl;
+  }
+}
+
+@layer components {
+  /* Export Data button - light grey */
+  button:has-text("Export Data"), 
+  [data-button="export"],
+  button[title*="export" i] {
+    @apply bg-gray-200 text-gray-800 hover:bg-gray-300 border-gray-300;
+  }
+
+  /* Customer Support button - blue */
+  button:has-text("Customer Support"), 
+  [data-button="support"],
+  button[title*="support" i] {
+    @apply bg-blue-600 text-white hover:bg-blue-700 border-blue-600;
+  }
+
+  /* Add Trade button - more visible */
+  button:has-text("Add Trade"),
+  [data-button="add-trade"],
+  button[title*="trade" i] {
+    @apply bg-green-600 text-white hover:bg-green-700 border-green-600;
+  }
+
+  /* Position Direction buttons (Long/Short) - make more visible */
+  .position-button,
+  button:has-text("Long"),
+  button:has-text("Short") {
+    @apply bg-slate-700 text-white hover:bg-slate-600 border-slate-600;
+  }
+
+  /* Week/Month filter buttons - make more visible */
+  .filter-button,
+  button:has-text("Week"),
+  button:has-text("Month"),
+  button:has-text("All") {
+    @apply bg-slate-600 text-white hover:bg-slate-500 border-slate-500;
+  }
+
+  /* Ghost-style button fallback */
+  .btn-ghost {
+    @apply bg-transparent text-foreground border-border;
+  }
+
+  /* Header buttons - ensure visibility */
+  .topbar button,
+  .topbar .btn,
+  .header button,
+  .topnav button {
+    @apply bg-slate-600 text-white hover:bg-slate-500 border-slate-500;
+  }
+
+  /* LogTickr logo - ensure visibility */
+  .logo,
+  [data-logo],
+  h1:has-text("LogTickr") {
+    @apply text-white font-bold;
+  }
+}
